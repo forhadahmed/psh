@@ -33,10 +33,10 @@ commands can be stored in python and manipulated by all of python's magic!
 
 #### Installation / Usage
 
-* place `pysh` in /usr/bin
-* run your python scripts with embedded bash commands:
+* Place `pysh` in /usr/bin
+* Run your python scripts with embedded bash commands:
   * `pysh myscript`
-  * add `#!/usr/bin/pysh` to any script and run it directly: `./myscript`
+  * Add `#!/usr/bin/pysh` to any script and run it directly: `./myscript`
 
 
 #### Notes
