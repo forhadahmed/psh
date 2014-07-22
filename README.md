@@ -33,7 +33,7 @@ commands can be stored in python and manipulated by all of python's magic!
 
 #### Installation / Usage
 
-* place `pysh` script in /usr/bin
+* place `pysh` in /usr/bin
 * run python scripts with embedded bash commands:
   * `pysh myscript`
   * add `#!/usr/bin/pysh` to any script and run it directly: `./myscript`
