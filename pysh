@@ -48,7 +48,7 @@ for m in matches:
     bash = orig[m.start():m.end()]
     bash = bash.replace('`', ' ')  # remove the backticks
     bash = bash.replace('\n', ' ') # we dont want newlines in our bash command
-    repl = 'os.popen("' + bash + '").read()'
+    repl = 'os.popen("' + bash + '").read()[:-1]' # erase trailing newline 
     code = code[:m.start()+off] + repl + code[m.start()+off+len(bash):]
     off += len(repl) - len(bash)
 #end for
