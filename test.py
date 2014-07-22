@@ -6,7 +6,7 @@ print "Number of files: %d" % len(ls.split())
 
 ls = `ls -lrS`
 
-largest = ls.split('\n')[-2] # last line in 'ls -lrS'
+largest = ls.split('\n')[-1] # last line in 'ls -lrS'
 
 columns = largest.split()
  
