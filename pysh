@@ -15,9 +15,9 @@ import os, sys, re
 #
 # ---- test.py ----------------------------------------------------------------
 #
-#    ls_output = `ls -al` #execute bash command and store results in python
+#    ls = `ls -al` #execute bash command and store results in python
 #
-#    if 'Hello.py' in ls_output: 
+#    if 'Hello.py' in ls: 
 #        print 'Hello, Python!'
 #    else:
 #        `touch Hello.py` #execute bash command 
