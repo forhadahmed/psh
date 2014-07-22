@@ -12,14 +12,21 @@ Python pre-processor for inline bash commands
 Bash offers a shorthand way of getting output from commands (using backticks):
     
     #!/usr/bin/bash
+    
     $FILES=`ls -al`
 
-pysh is a preprocessor for allowing similar inline bash commands in python:
+However, doing any processing on that output in bash is hugely cumbersome...
+`pysh` is a preprocessor for allowing similar inline bash commands in python:
 
     #!/usr/bin/pysh
-    files=`ls -al`
-    print "Number of files: %d" % len(files.split())
+    
+    files = `ls -al`
+    
+    if "Hello.py" in files:
+        print "Hello!"
+    else:
+       `touch Hello.py`
     
 This is purely for convenience - it replaces commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of commands
-placed inside backticks can be stored in a python variable
+can be stored in a python variable and manipulated by all kinds of python magic!
