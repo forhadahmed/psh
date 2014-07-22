@@ -5,7 +5,7 @@ Python pre-processor for inline bash commands
 * bash is great for system scripting! 
 * python is great for programming ease!
 
-**pysh** is an attempt to combine the two for convenience  
+**pysh** is an attempt to combine the two...
 
 -
 
