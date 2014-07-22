@@ -37,3 +37,4 @@ commands can be stored in python and manipulated by all of python's magic!
 * Don't use backticks for nesting commands - use `$()`
 * Bash commands in backticks can span multiple lines
 * Each bash command executes in its own shell (variables assignments within bash are not persistent)
+* *Needs more testing* !
