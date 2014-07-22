@@ -13,7 +13,7 @@ Bash offers a shorthand way of getting output from commands (using backticks):
 ```bash    
 #!/usr/bin/bash
 
-$FILES=`ls -al`
+FILES=`ls -al`
 ```
 However, doing any processing on that output in bash is hugely cumbersome...
 `pysh` is a preprocessor for allowing similar inline bash commands in python:
@@ -30,3 +30,7 @@ else:
 This is purely for convenience - it replaces bash commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of bash 
 commands can be stored in python and manipulated by all of python's magic!
+
+#### Notes
+
+* 
