@@ -1,3 +1,5 @@
+#!/usr/bin/pysh
+
 ls = `ls`
 
 print "Number of files: %d" % len(ls.split())
