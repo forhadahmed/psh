@@ -7,6 +7,8 @@ Python pre-processor for inline bash commands
 
 **pysh** is an attempt to combine the two for convenience  
 
+-
+
 Bash offers a shorthand way of getting output from commands (using backticks):
     
     #!/usr/bin/bash
