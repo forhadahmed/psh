@@ -24,7 +24,7 @@ import os, sys, re
 #    
 # -----------------------------------------------------------------------------
 #
-# Run it with pysh:
+# Run it with pysh instead of python:
 #  
 # linux> pysh test.py
 #
