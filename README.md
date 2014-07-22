@@ -17,7 +17,7 @@ Bash offers a shorthand way of getting output from commands (using backticks):
 
 However, doing any processing on that output in bash is hugely cumbersome...
 `pysh` is a preprocessor for allowing similar inline bash commands in python:
-
+```python
     #!/usr/bin/pysh
     
     files = `ls -al`
@@ -26,7 +26,7 @@ However, doing any processing on that output in bash is hugely cumbersome...
         print "Hello!"
     else:
        `touch Hello.py`
-    
+```    
 This is purely for convenience - it replaces commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of commands
 can be stored in a python variable and manipulated by all kinds of python magic!
