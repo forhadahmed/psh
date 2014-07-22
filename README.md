@@ -6,7 +6,6 @@ Python pre-processor for inline bash commands
 * python is great for programming ease!
 
 **pysh** is an attempt to combine the two for convenience  
-
 -
 
 Bash offers a shorthand way of getting output from commands (using backticks):
