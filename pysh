@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+import os, sys, re
+
+#
+# Bash offers a shorthand way of getting output from commands with backticks:
+#
+#   $FILES = `ls -al`
+#
+# pysh is a python preprocessor for allowing similar inline bash commands
+#
+# This is purely for convenience - all it does is replace `bash command` with
+# os.popen("bash command").read() and exec() the resultant code.  The results
+# can be stored in a python variable (but don't need to be):
+#
+# ---- test.py ----------------------------------------------------------------
+#
+#    ls_output = `ls -al` #execute bash command and store results in python
+#
+#    if 'Hello.py' in ls_output: 
+#        print 'Hello, Python!'
+#    else:
+#        `touch Hello.py` #execute bash command 
+#    
+# -----------------------------------------------------------------------------
+#
+# Run it with pysh:
+#  
+# linux> pysh test.py
+#
+
+if len(sys.argv) < 2: 
+   print "Usage: %s [file]" % sys.argv[0]
+   sys.exit()
+#end if
+
+file = sys.argv[1]
+
+code = open(file).read()
+orig = code 
+
+pattern = re.compile("`.*?`", re.M | re.S)
+matches = re.finditer(pattern, code)
+
+off = 0
+
+for m in matches: 
+    bash = orig[m.start():m.end()]
+    bash = bash.replace('`', ' ')  # remove the backticks
+    bash = bash.replace('\n', ' ') # we dont want newlines in our bash command
+    repl = 'os.popen("' + bash + '").read()'
+    code = code[:m.start()+off] + repl + code[m.start()+off+len(bash):]
+    off += len(repl) - len(bash)
+#end for
+
+exec(code)
+
