@@ -29,4 +29,4 @@ else:
 ```    
 This is purely for convenience - it replaces commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of commands
-can be stored in a python variable and manipulated by all kinds of python magic!
+can be stored in a python variable and manipulated by all of python's magic!
