@@ -5,7 +5,7 @@ import os, sys, re
 #
 # Bash offers a shorthand way of getting output from commands with backticks:
 #
-#   $FILES = `ls -al`
+#   FILES = `ls -al`
 #
 # pysh is a python preprocessor for allowing similar inline bash commands
 #
