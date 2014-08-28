@@ -39,6 +39,39 @@ file = sys.argv[1]
 code = open(file).read()
 orig = code 
 
+#
+# Helper routine to take a `bash command` inside backticks and replace all 
+# ${variable} references
+#
+def pysh_prepare(bash):
+    
+    bash = bash.replace('`', ' ')  # remove the backticks
+    bash = bash.replace('\n', ' ') # we dont want newlines in our bash command
+    orig = bash
+    
+    #
+    # Replace the ${variable} references
+    #
+    pattern = re.compile("\$\{.*?\}", re.M | re.S)
+    matches = re.finditer(pattern, bash)
+    
+    off = 0
+    for m in matches:
+        pvar = orig[m.start():m.end()]
+        temp = pvar[2:-1] # ${...} 
+        repl = '"+str('+temp+')+"'
+        bash = bash[:m.start()+off] + repl + bash[m.start()+off+len(pvar):]
+        off += len(repl) - len(pvar)
+    #end for
+    
+    return bash
+
+#end def
+
+
+#
+# Look for `bash commands` inside backticks and convert them to a piped OS read
+#
 pattern = re.compile("`.*?`", re.M | re.S)
 matches = re.finditer(pattern, code)
 
@@ -46,12 +79,14 @@ off = 0
 
 for m in matches: 
     bash = orig[m.start():m.end()]
-    bash = bash.replace('`', ' ')  # remove the backticks
-    bash = bash.replace('\n', ' ') # we dont want newlines in our bash command
-    repl = 'os.popen("' + bash + '").read()[:-1]' # erase trailing newline 
+    temp = pysh_prepare(bash)
+    repl = 'os.popen("' + temp + '").read()[:-1]' # erase trailing newline
     code = code[:m.start()+off] + repl + code[m.start()+off+len(bash):]
     off += len(repl) - len(bash)
 #end for
 
+#
+# Finally...
+# 
 exec(code)
 
