@@ -1,11 +1,11 @@
-![pysh](http://www.forhadahmed.net/github/pysh-logo.png)
+![psh](http://www.forhadahmed.net/github/psh-logo.png)
 
 Python pre-processor for inline bash commands
 
 * bash is great for system scripting! 
 * python is great for programming ease!
 
-**pysh** is an attempt to combine the two...
+**psh** is an attempt to combine the two...
 
 -
 
@@ -16,9 +16,9 @@ Bash offers a shorthand way of getting output from commands (using backticks):
 FILES=`ls -al`
 ```
 However, doing any processing on that output in bash is hugely cumbersome...
-`pysh` is a preprocessor for allowing similar inline bash commands in python:
+`psh` is a preprocessor for allowing similar inline bash commands in python:
 ```python
-#!/usr/bin/pysh
+#!/usr/bin/psh
     
 files = `ls -al`
     
@@ -33,10 +33,10 @@ commands can be stored in python and manipulated by all of python's magic!
 
 #### Installation / Usage
 
-* Place `pysh` in /usr/bin
+* Place `psh` in /usr/bin
 * Run your python scripts with embedded bash commands:
-  * `pysh myscript`
-  * Add `#!/usr/bin/pysh` to any script and run it directly: `./myscript`
+  * `psh myscript`
+  * Add `#!/usr/bin/psh` to any script and run it directly: `./myscript`
 
 
 #### Notes
