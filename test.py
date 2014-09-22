@@ -1,4 +1,4 @@
-#!/usr/bin/pysh
+#!/usr/bin/psh
 
 ls = `ls`
 
