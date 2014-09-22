@@ -22,10 +22,10 @@ However, doing any processing on that output in bash is hugely cumbersome...
     
 files = `ls -al`
     
-if "Hello.py" in files:
-    print "Hello!"
+if "Hello.txt" in files:
+    print `cat Hello.txt`
 else:
-   `touch Hello.py`
+   `echo "Hello, World!" > Hello.txt`
 ```    
 Much like Perl backticks! This is purely for convenience - it replaces bash commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of bash 
