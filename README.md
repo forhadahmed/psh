@@ -31,6 +31,11 @@ Much like Perl backticks! This is purely for convenience - it replaces bash comm
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of bash 
 commands can be stored in python and manipulated by all of python's magic!
 
+#### Python variables inside backticks
+
+* `psh` allows for executing dynamic bash commands with python variables in them
+* Use `${}` to embed python variables: [give a good example]
+
 #### Installation / Usage
 
 * Place `psh` in /usr/bin
@@ -38,11 +43,9 @@ commands can be stored in python and manipulated by all of python's magic!
   * `psh myscript`
   * Add `#!/usr/bin/psh` to any script and run it directly: `./myscript`
 
-
 #### Notes
 
-* Only fixed bash commands can be executed - cannot use python variables inside bash commands (TODO)
-* Don't use backticks for nesting commands - use `$()`
+* Don't use backticks for nesting bash commands - use `$()`
 * Bash commands in backticks can span multiple lines
 * Each bash command executes in its own shell (variables assignments within bash are not persistent)
 * *Needs more testing* !
