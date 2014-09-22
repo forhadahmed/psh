@@ -45,6 +45,7 @@ commands can be stored in python and manipulated by all of python's magic!
 
 #### Notes
 
+* Can't use `import` to import psh files
 * Don't use backticks for nesting bash commands - use `$()`
 * Bash commands in backticks can span multiple lines
 * Each bash command executes in its own shell (variables assignments within bash are not persistent)
