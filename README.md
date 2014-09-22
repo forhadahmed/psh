@@ -27,7 +27,7 @@ if "Hello.py" in files:
 else:
    `touch Hello.py`
 ```    
-This is purely for convenience - it replaces bash commands inside backticks with
+Much like Perl backticks! This is purely for convenience - it replaces bash commands inside backticks with
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of bash 
 commands can be stored in python and manipulated by all of python's magic!
 
