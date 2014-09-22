@@ -7,7 +7,7 @@ import os, sys, re
 #
 #   FILES = `ls -al`
 #
-# pysh is a python preprocessor for allowing similar inline bash commands
+# psh is a python preprocessor for allowing similar inline bash commands
 #
 # This is purely for convenience - all it does is replace `bash command` with
 # os.popen("bash command").read() and exec() the resultant code.  The results
@@ -24,9 +24,9 @@ import os, sys, re
 #    
 # -----------------------------------------------------------------------------
 #
-# Run it with pysh instead of python:
+# Run it with psh instead of python:
 #  
-# linux> pysh test.py
+# linux> psh test.py
 #
 
 if len(sys.argv) < 2: 
@@ -43,7 +43,7 @@ orig = code
 # Helper routine to take a `bash command` inside backticks and replace all 
 # ${variable} references
 #
-def pysh_prepare(bash):
+def psh_prepare(bash):
     
     bash = bash.replace('`', ' ')  # remove the backticks
     bash = bash.replace('\n', ' ') # we dont want newlines in our bash command
@@ -79,7 +79,7 @@ off = 0
 
 for m in matches: 
     bash = orig[m.start():m.end()]
-    temp = pysh_prepare(bash)
+    temp = psh_prepare(bash)
     repl = 'os.popen("' + temp + '").read()[:-1]' # erase trailing newline
     code = code[:m.start()+off] + repl + code[m.start()+off+len(bash):]
     off += len(repl) - len(bash)
