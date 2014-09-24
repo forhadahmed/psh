@@ -31,7 +31,7 @@ Much like Perl backticks! This is purely for convenience - it replaces bash comm
 `os.popen(...).read()` and `exec()`'s the resultant code.  The output of bash 
 commands can be stored in python and manipulated by all of python's magic!
 
-#### Python variables inside backticks
+#### Python variables bash commands
 
 * `psh` allows for executing dynamic bash commands with python variables in them
 * Use `${}` to embed python variables: [give a good example]
