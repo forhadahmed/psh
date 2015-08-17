@@ -1,4 +1,4 @@
-![psh](http://www.forhadahmed.net/github/psh-logo.png)
+![psh](http://www.circuitsoft.net/github/psh-logo.png)
 
 Python pre-processor for inline bash commands
 
